@@ -222,18 +222,18 @@ const EmployeeProfileForm = () => {
                     />
                     <DialogActions>
                       <Button
+                        style={{backgroundColor: '#4EA685'}}
                         className="submit-button"
                         type="submit"
                         variant="contained"
-                        color="primary"
                         disabled={isSubmitting}
                       >
                         Save
                       </Button>
                       <Button
+                        style={{backgroundColor: '#4EA685'}}
                         className="cancel-button"
                         variant="contained"
-                        color="secondary"
                         onClick={handleClose}
                       >
                         Cancel
