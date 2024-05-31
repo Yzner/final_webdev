@@ -15,10 +15,10 @@ export default async function handler(req, res) {
       const result = await query(`SELECT * FROM users WHERE id = ?`, [decoded.id]);
       res.status(200).json(result[0]);
     } else if (req.method === 'PUT') {
-      const { firstname, lastname, email, bio } = req.body;
+      const { firstname, email, bio } = req.body;
       const result = await query(
-        `UPDATE users SET firstname = ?, lastname = ?, email = ?, bio = ? WHERE id = ?`,
-        [firstname, lastname, email, bio, decoded.id]
+        `UPDATE users SET firstname = ?, email = ?, bio = ? WHERE id = ?`,
+        [firstname, email, bio, decoded.id]
       );
       res.status(200).json(result);
     }

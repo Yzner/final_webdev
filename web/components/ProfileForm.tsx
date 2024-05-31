@@ -8,7 +8,6 @@ import axios from 'axios';
 
 const ProfileSchema = Yup.object().shape({
   firstname: Yup.string(),
-  lastname: Yup.string(),
   email: Yup.string().email('Invalid email'),
   bio: Yup.string(),
 });
@@ -53,7 +52,7 @@ const ProfileForm = () => {
           {!isEditing ? (
             <div>
               <Typography variant="subtitle1" gutterBottom style={{ textAlign: 'center' }}>
-                Name: {data.firstname} {data.lastname}
+                Company: {data.firstname}
               </Typography>
               <Typography variant="subtitle1" gutterBottom style={{ textAlign: 'center'}}>
                 Email: {data.email}
@@ -69,7 +68,6 @@ const ProfileForm = () => {
             <Formik
               initialValues={{
                 firstname: data.firstname,
-                lastname: data.lastname,
                 email: data.email,
                 bio: data.bio || '',
               }}
@@ -97,14 +95,6 @@ const ProfileForm = () => {
                     fullWidth
                     error={touched.firstname && !!errors.firstname}
                     helperText={touched.firstname && errors.firstname}
-                  />
-                  <Field
-                    as={TextField}
-                    name="lastname"
-                    label="Last Name"
-                    fullWidth
-                    error={touched.lastname && !!errors.lastname}
-                    helperText={touched.lastname && errors.lastname}
                   />
                   <Field
                     as={TextField}

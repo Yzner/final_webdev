@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
 
 const SignupSchema = Yup.object().shape({
   firstname: Yup.string().required('First name is required'),
-  lastname: Yup.string().required('Last name is required'),
   email: Yup.string().email('Invalid email').required('Email is required'),
   password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),
 });
@@ -30,7 +29,7 @@ const SignupForm = () => {
 
   return (
     <Formik
-      initialValues={{ firstname: '', lastname: '', email: '', password: '' }}
+      initialValues={{ firstname: '', email: '', password: '' }}
       validationSchema={SignupSchema}
       onSubmit={async (values, { setSubmitting }) => {
         try {
@@ -48,20 +47,10 @@ const SignupForm = () => {
             <Field
               as={TextField}
               name="firstname"
-              label="First Name"
+              label="Company Name"
               fullWidth
               error={touched.firstname && !!errors.firstname}
               helperText={touched.firstname && errors.firstname}
-            />
-          </Box>
-          <Box mb={2}>
-            <Field
-              as={TextField}
-              name="lastname"
-              label="Last Name"
-              fullWidth
-              error={touched.lastname && !!errors.lastname}
-              helperText={touched.lastname && errors.lastname}
             />
           </Box>
           <Box mb={2}>
