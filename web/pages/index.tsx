@@ -60,7 +60,7 @@ const Home = () => {
         <Box className={classes.prompt}>
           {tabIndex === 0 ? (
             <>
-              <h3>Don't have an account?</h3>
+              <h3>Dont have an account?</h3>
               <Button
                 onClick={() => setTabIndex(1)}
                 variant="contained"
